@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keeper × Six Senses — Next Phase Partnership Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inconsolata:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --forest:      #1C4A36;
+  --forest-mid:  #2D6E52;
+  --forest-lite: #4A9E78;
+  --forest-pale: #E4F2EB;
+  --gold:        #C9A84C;
+  --gold-pale:   #F7F0DC;
+  --ink:         #0F0F0D;
+  --ink-soft:    #2E2E2A;
+  --ink-mid:     #4A4A45;
+  --paper:       #F6F3ED;
+  --paper-warm:  #EDE8DF;
+  --white:       #FFFFFF;
+  --slate:       #3A4A5C;
+  --sand:        #C9B99A;
+  --border:      rgba(15,15,13,0.08);
+  --border-mid:  rgba(15,15,13,0.13);
+  --sixsenses:   #2C5F4A;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.internal-banner {
+  background: var(--forest);
+  padding: 9px 72px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.internal-tag {
+  font-family: 'Inconsolata', monospace;
+  font-size: 9px; letter-spacing: .20em; text-transform: uppercase;
+  background: var(--gold);
+  color: var(--forest);
+  padding: 3px 9px;
+  border-radius: 3px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.internal-note {
+  font-family: 'Inconsolata', monospace;
+  font-size: 10.5px; color: rgba(246,243,237,.55);
+  letter-spacing: .04em;
+}
+
+.cover {
+  background: var(--forest);
+  position: relative;
+  overflow: hidden;
+  padding: 56px 72px 52px;
+}
+.cover::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 55% at 90% 10%, rgba(201,168,76,.10) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 50% at 0% 90%,  rgba(74,158,120,.08) 0%, transparent 55%);
+  pointer-events: none;
+}
+.cover::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--gold), rgba(201,168,76,.2));
+}
+.cover-ring {
+  position: absolute; border-radius: 50%;
+  border: 1px solid rgba(247,243,237,.05); pointer-events: none;
+}
+.r1 { width: 560px; height: 560px; top: -180px; right: -120px; }
+.r2 { width: 260px; height: 260px; bottom: -60px; left: -40px; }
+
+.cover-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative; z-index: 1;
+  margin-bottom: 44px;
+}
+.cover-logos { display: flex; align-items: center; gap: 16px; }
+.cover-logos img { height: 34px; }
+.logo-divider { width: 1px; height: 28px; background: rgba(247,243,237,.18); }
+.cover-logo-label {
+  font-family: 'Inconsolata', monospace;
+  font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(247,243,237,.38);
+}
+.cover-meta { text-align: right; }
+.cover-meta-tag {
+  font-family: 'Inconsolata', monospace;
+  font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 6px;
+}
+.cover-meta-sub {
+  font-family: 'Inconsolata', monospace;
+  font-size: 11px; color: rgba(247,243,237,.55);
+  letter-spacing: .05em;
+}
+.cover-inner { position: relative; z-index: 1; }
+.cover-eyebrow {
+  font-family: 'Inconsolata', monospace;
+  font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(247,243,237,.38);
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 18px;
+}
+.cover-eyebrow::before { content: ''; width: 20px; height: 1px; background: rgba(247,243,237,.28); }
+.cover h1 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(28px, 3.8vw, 44px);
+  font-weight: 600; line-height: 1.1;
+  color: var(--paper); margin-bottom: 20px;
+}
+.cover h1 em { font-style: italic; color: var(--gold); font-weight: 400; }
+.cover-quote {
+  max-width: 100%;
+  padding-left: 16px;
+  border-left: 2px solid var(--gold);
+  margin-bottom: 0;
+}
+.cover-quote p {
+  font-size: 13.5px; font-style: italic;
+  color: rgba(247,243,237,.72); line-height: 1.5;
+  margin-bottom: 6px;
+}
+.cover-quote cite {
+  font-family: 'Inconsolata', monospace;
+  font-size: 9px; letter-spacing: .08em;
+  color: rgba(247,243,237,.38); font-style: normal;
+}
+
+.cred-band {
+  background: var(--paper-warm);
+  border-bottom: 1px solid var(--border-mid);
+  padding: 14px 72px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.cred-badge {
+  flex-shrink: 0;
+  background: var(--white);
+  border: 1px solid var(--border-mid);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-family: 'Inconsolata', monospace;
+  font-size: 9px; letter-spacing: .10em; text-transform: uppercase;
+  color: var(--forest-mid); white-space: nowrap;
+}
+.cred-text { font-size: 12.5px; color: var(--ink-mid); line-height: 1.55; }
+.cred-text strong { color: var(--ink-soft); }
+
+.compliance-band {
+  background: var(--forest);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  padding: 16px 72px 14px;
+}
+.compliance-label {
+  font-family: 'Inconsolata', monospace;
+  font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
+  color: rgba(246,243,237,.35);
+  margin-bottom: 10px;
+}
+.compliance-items {
+  display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px;
+}
+.compliance-item {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 6px; padding: 6px 12px;
+  flex: 1; min-width: 180px;
+}
+.compliance-tag {
+  font-family: 'Inconsolata', monospace;
+  font-size: 9px; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gold); white-space: nowrap; flex-shrink: 0;
+}
+.compliance-desc { font-size: 11px; color: rgba(246,243,237,.55); line-height: 1.4; }
+.compliance-footer {
+  font-family: 'Inconsolata', monospace;
+  font-size: 9.5px; color: rgba(246,243,237,.38);
+  letter-spacing: .04em; font-style: italic;
+}
+
+.wrap { max-width: 900px; margin: 0 auto; padding: 0 72px; }
+.section { padding: 52px 0; }
+.section + .section { border-top: 1px solid var(--border); }
+
+.eyebrow {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+  font-weight: 700; color: var(--ink-soft);
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 12px;
+}
+.eyebrow::before { content: ''; width: 16px; height: 1.5px; background: currentColor; flex-shrink: 0; }
+.eyebrow.gold { color: var(--gold); }
+.eyebrow.gold::before { background: var(--gold); }
+
+h2.sh {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 600; line-height: 1.2; margin-bottom: 6px;
+}
+h2.sh em { font-style: italic; color: var(--forest-mid); font-weight: 400; }
+.sh-rule { width: 32px; height: 2.5px; background: var(--gold); border-radius: 2px; margin: 10px 0 24px; }
+
+.hero-panel {
+  background: var(--forest);
+  border-radius: 14px; padding: 32px 36px;
+  position: relative; overflow: hidden; margin-bottom: 24px;
+}
+.hero-panel::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+.hero-panel h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 19px; font-weight: 600;
+  color: var(--paper); line-height: 1.25;
+  margin-bottom: 12px; max-width: 580px;
+}
+.hero-panel p { font-size: 13.5px; color: rgba(246,243,237,.72); line-height: 1.7; max-width: 620px; }
+.hero-panel strong { color: var(--gold); font-weight: 500; }
+
+.stats-row {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 10px; margin-bottom: 6px;
+}
+.stat-card {
+  background: var(--white);
+  border: 1px solid var(--border-mid);
+  border-top: 3px solid var(--forest-lite);
+  border-radius: 10px; padding: 18px 16px 14px; text-align: center;
+}
+.stat-num {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 26px; font-weight: 700;
+  color: var(--forest); line-height: 1; margin-bottom: 5px;
+}
+.stat-label {
+  font-family: 'Inconsolata', monospace;
+  font-size: 9px; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--ink-mid); line-height: 1.4;
+}
+.stats-footnote {
+  font-family: 'Inconsolata', monospace;
+  font-size: 9px; color: var(--ink-mid);
+  letter-spacing: .05em; text-align: right; margin-bottom: 0;
+}
+
+.upload-option {
+  padding: 11px 14px; border-radius: 7px;
+  background: var(--forest-pale);
+  border: 1px solid rgba(28,74,54,.12);
+  margin-bottom: 8px;
+  font-size: 12.5px; color: var(--ink-mid); line-height: 1.6;
+}
+.upload-option:last-child { margin-bottom: 0; }
+.upload-option-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .06em;
+  color: var(--forest-mid); margin-bottom: 5px;
+}
+
+.offer-panel {
+  background: var(--gold-pale);
+  border: 1px solid rgba(201,168,76,.3);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 20px 24px; margin-bottom: 16px;
+}
+.offer-panel p { font-size: 14px; color: var(--ink-soft); line-height: 1.7; }
+.offer-panel strong { color: var(--ink); }
+
+.pilot-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 24px; }
+.pilot-card {
+  background: var(--white);
+  border: 1px solid var(--border-mid);
+  border-radius: 12px; padding: 22px 24px; position: relative;
+}
+.pilot-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  border-radius: 12px 12px 0 0; background: var(--forest-lite);
+}
+.pilot-num {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 28px; font-weight: 700;
+  color: var(--forest-lite); line-height: 1; margin-bottom: 4px;
+}
+.pilot-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px; font-weight: 600;
+  color: var(--ink-soft); margin-bottom: 10px;
+  padding-bottom: 10px; border-bottom: 1px solid var(--border);
+}
+.pilot-body { font-size: 12.5px; color: var(--ink-mid); line-height: 1.6; }
+.pilot-body strong { color: var(--ink-soft); }
+
+.learned-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+.learned-card {
+  background: var(--forest-pale);
+  border: 1px solid rgba(28,74,54,.12);
+  border-radius: 10px; padding: 18px 20px;
+}
+.learned-head {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12.5px; font-weight: 600;
+  color: var(--forest); margin-bottom: 7px;
+  display: flex; align-items: center; gap: 8px;
+}
+.learned-icon { font-size: 15px; }
+.learned-body { font-size: 12.5px; color: var(--ink-mid); line-height: 1.6; }
+
+.needs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px; }
+.need-card {
+  background: var(--white);
+  border: 1px solid var(--border-mid);
+  border-radius: 12px; padding: 22px 24px;
+}
+.need-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px; font-weight: 600;
+  color: var(--ink); margin-bottom: 8px;
+}
+.need-body { font-size: 13px; color: var(--ink-mid); line-height: 1.65; }
+.need-body strong { color: var(--forest-mid); font-weight: 600; }
+.need-tag {
+  display: inline-block; margin-top: 12px;
+  font-family: 'Inconsolata', monospace;
+  font-size: 9px; letter-spacing: .12em; text-transform: uppercase;
+  background: var(--forest-pale); color: var(--forest-mid);
+  padding: 3px 8px; border-radius: 4px;
+}
+
+.exchange-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.ex-col { border-radius: 12px; overflow: hidden; border: 1px solid var(--border-mid); }
+.ex-col.keeper { border-top: 3px solid var(--forest-lite); }
+.ex-col.partner { border-top: 3px solid var(--gold); }
+.ex-header { padding: 16px 22px 14px; border-bottom: 1px solid var(--border); background: var(--white); }
+.ex-col.keeper .ex-header { background: var(--forest); color: var(--paper); }
+.ex-col.keeper .ex-header span { display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; margin-bottom: 3px; color: var(--paper); }
+.ex-col.partner .ex-header span { display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; margin-bottom: 3px; color: var(--ink); }
+.ex-col.keeper .ex-header { font-size: 11.5px; color: rgba(246,243,237,.6); }
+.ex-col.partner .ex-header { font-size: 11.5px; color: var(--ink-mid); }
+.ex-items { padding: 18px 22px; background: var(--white); }
+.ex-item {
+  display: flex; gap: 10px;
+  font-size: 13px; color: var(--ink-mid); line-height: 1.6;
+  padding: 8px 0; border-bottom: 1px solid var(--border);
+}
+.ex-item:last-child { border-bottom: none; padding-bottom: 0; }
+.ex-arrow { color: var(--forest-lite); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+.ex-col.partner .ex-arrow { color: var(--gold); }
+
+.metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+.metric-card {
+  background: var(--white);
+  border: 1px solid var(--border-mid);
+  border-radius: 10px; padding: 18px 20px;
+}
+.metric-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px; font-weight: 700;
+  color: var(--forest); margin-bottom: 7px;
+  text-transform: uppercase; letter-spacing: .04em;
+}
+.metric-body { font-size: 12.5px; color: var(--ink-mid); line-height: 1.6; }
+
+.tiers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.tier-card { border-radius: 12px; overflow: hidden; border: 1px solid var(--border-mid); }
+.tier-card.t1 .tier-header { background: var(--forest); }
+.tier-card.t2 .tier-header { background: var(--slate); }
+.tier-header { padding: 20px 24px; }
+.tier-tag {
+  font-family: 'Inconsolata', monospace;
+  font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(246,243,237,.50); margin-bottom: 6px;
+}
+.tier-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px; font-weight: 600;
+  color: var(--paper); line-height: 1.2; margin-bottom: 4px;
+}
+.tier-budget { font-size: 12px; color: rgba(246,243,237,.55); font-style: italic; }
+.tier-body {
+  background: var(--white); padding: 20px 24px;
+  font-size: 13px; color: var(--ink-mid); line-height: 1.65;
+}
+.tier-price {
+  margin-top: 14px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px; font-weight: 600; color: var(--forest);
+}
+.tier-covers {
+  margin-top: 6px;
+  font-family: 'Inconsolata', monospace;
+  font-size: 10px; letter-spacing: .04em; color: var(--ink-mid);
+}
+
+.italic-closer {
+  margin-top: 20px; padding: 16px 22px;
+  background: var(--forest-pale);
+  border-left: 3px solid var(--forest-lite);
+  border-radius: 0 8px 8px 0;
+  font-size: 13.5px; color: var(--ink-mid);
+  line-height: 1.65; font-style: italic;
+}
+.italic-closer strong { color: var(--forest); font-style: normal; }
+
+.close-panel {
+  background: var(--forest);
+  border-radius: 14px; padding: 36px 40px;
+  margin: 52px 0; position: relative; overflow: hidden;
+}
+.close-panel::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+.close-panel h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 22px; font-weight: 600;
+  color: var(--paper); margin-bottom: 14px;
+}
+.close-panel p {
+  font-size: 14px; color: rgba(246,243,237,.75);
+  line-height: 1.75; max-width: 680px;
+}
+.close-panel strong { color: var(--gold); font-weight: 500; }
+
+.doc-footer {
+  background: var(--forest); padding: 18px 72px;
+  display: flex; align-items: center; justify-content: space-between;
+  font-family: 'Inconsolata', monospace;
+  font-size: 10px; color: rgba(246,243,237,.38); letter-spacing: .06em;
+}
+
+.context-panel {
+  background: var(--white);
+  border: 1px solid var(--border-mid);
+  border-left: 4px solid var(--forest-mid);
+  border-radius: 0 10px 10px 0;
+  padding: 18px 24px; margin-top: 20px;
+}
+.context-panel p { font-size: 13px; color: var(--ink-mid); line-height: 1.7; }
+.context-panel strong { color: var(--ink-soft); }
+
+.intelligence-panel {
+  margin-top: 14px; background: var(--forest);
+  border-radius: 10px; padding: 22px 26px;
+  display: flex; gap: 18px; align-items: flex-start;
+}
+.intelligence-icon { font-size: 22px; color: var(--gold); flex-shrink: 0; margin-top: 1px; line-height: 1; }
+.intelligence-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .08em;
+  color: var(--gold); margin-bottom: 6px;
+}
+.intelligence-body { font-size: 13.5px; color: rgba(246,243,237,.80); line-height: 1.65; }
+
+.timeline { position: relative; padding-left: 28px; margin-bottom: 24px; }
+.timeline::before {
+  content: '';
+  position: absolute; top: 6px; bottom: 6px; left: 6px;
+  width: 2px; background: var(--border-mid);
+}
+.tl-item { position: relative; padding-bottom: 22px; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-dot {
+  position: absolute; left: -25px; top: 4px;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--forest-lite);
+  border: 2px solid var(--paper);
+  box-shadow: 0 0 0 2px var(--forest-lite);
+}
+.tl-phase {
+  font-family: 'Inconsolata', monospace;
+  font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--forest-mid); margin-bottom: 3px;
+}
+.tl-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px; font-weight: 600;
+  color: var(--ink-soft); margin-bottom: 5px;
+}
+.tl-body { font-size: 12.5px; color: var(--ink-mid); line-height: 1.6; }
+
+@media (max-width: 720px) {
+  .compliance-band { padding: 14px 24px; }
+  .compliance-items { flex-direction: column; }
+  .wrap { padding: 0 24px; }
+  .cover { padding: 36px 24px 32px; }
+  .cred-band { padding: 12px 24px; flex-wrap: wrap; }
+  .internal-banner { padding: 9px 24px; }
+  .doc-footer { padding: 14px 24px; flex-direction: column; gap: 8px; text-align: center; }
+  .stats-row { grid-template-columns: 1fr 1fr; }
+  .pilot-grid, .learned-grid, .needs-grid, .exchange-grid, .metrics-grid, .tiers-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="internal-banner">
+  <div class="internal-tag">Six Senses Uluwatu &amp; Group Sustainability</div>
+  <div class="internal-note">Partnership proposal · Keeper × Six Senses · June 2026</div>
+</div>
+
+<div class="cover">
+  <div class="cover-ring r1"></div>
+  <div class="cover-ring r2"></div>
+  <div class="cover-top">
+    <div class="cover-logos">
+      <svg height="32" viewBox="0 0 80 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polyline points="8,4 22,16 8,28" stroke="#4A9E78" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <polyline points="20,4 34,16 20,28" stroke="#F6F3ED" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.7"/>
+      </svg>
+      <div class="logo-divider"></div>
+      <div class="cover-logo-label">Prepared for<br>Six Senses Hotels Resorts Spas</div>
+    </div>
+    <div class="cover-meta">
+      <span class="cover-meta-tag">Partnership Proposal</span>
+      <span class="cover-meta-sub">Six Senses · Uluwatu &amp; Beyond · 2026</span>
+      <span class="cover-meta-sub" style="display:block;margin-top:3px">Circular Asset Management · At Scale</span>
+    </div>
+  </div>
+  <div class="cover-inner">
+    <div class="cover-eyebrow">Six Senses Uluwatu &amp; Group Sustainability</div>
+    <h1>The opportunity is real.<br><em>Let's build it together.</em></h1>
+    <div class="cover-quote">
+      <p>Six Senses has led sustainable luxury since the 1990s. End-of-life asset management is the gap that no one has solved. Keeper has proven the model works — and we want to build the version that works for Six Senses, starting at Uluwatu and growing across your global portfolio.</p>
+      <cite>— Keeper, June 2026 · Six Senses Uluwatu &amp; Group Sustainability</cite>
+    </div>
+  </div>
+</div>
+
+<div class="cred-band">
+  <div class="cred-badge">3 Pilots Complete</div>
+  <div class="cred-badge">GSTC-Aligned Data</div>
+  <div class="cred-badge">GRI / CSRD-Ready</div>
+  <div class="cred-text">
+    Keeper has run three live pilots across mid-cycle asset diversion events — not full refurbishments.<br>
+    <strong>The methodology is proven. The data is real. The next step is building at Six Senses' scale.</strong>
+  </div>
+</div>
+
+<div class="compliance-band">
+  <div class="compliance-label">Six Senses sustainability frameworks — where Keeper data flows</div>
+  <div class="compliance-items">
+    <div class="compliance-item">
+      <span class="compliance-tag">GSTC</span>
+      <span class="compliance-desc">Six Senses is GSTC-certified across all 27 properties. Keeper's asset diversion data strengthens waste and circular economy criteria.</span>
+    </div>
+    <div class="compliance-item">
+      <span class="compliance-tag">CSRD</span>
+      <span class="compliance-desc">IHG group CSRD exposure. Keeper generates Scope 3 evidence across Cat. 2, 5 &amp; 12 — asset lifecycle data currently absent from most hotel ESG reports.</span>
+    </div>
+    <div class="compliance-item">
+      <span class="compliance-tag">GRI / SASB</span>
+      <span class="compliance-desc">Keeper's per-property and portfolio outputs are structured for GRI 306 (Waste) and SASB hospitality disclosure — audit-ready, not estimated.</span>
+    </div>
+    <div class="compliance-item">
+      <span class="compliance-tag">Circular Economy</span>
+      <span class="compliance-desc">Six Senses is already recognised for circularity innovation (World Sustainable Travel &amp; Hospitality Awards). Keeper makes this measurable at portfolio scale.</span>
+    </div>
+  </div>
+  <div class="compliance-footer">Six Senses operates 27+ properties across 20 countries · IHG parent group · GSTC-certified · Sustainability embedded in management contracts</div>
+</div>
+
+<div class="wrap">
+
+  <!-- 01 WHERE WE ARE -->
+  <div class="section">
+    <div class="eyebrow">01 — What We Saw at Uluwatu</div>
+    <h2 class="sh">The problem is familiar.<br><em>The opportunity is significant.</em></h2>
+    <div class="sh-rule"></div>
+
+    <div class="hero-panel">
+      <h3>The challenge at Uluwatu isn't unique — but the opportunity to solve it at Six Senses scale is.</h3>
+      <p>The site visit confirmed what Keeper sees consistently across hotel renovations and mid-cycle upgrades: asset value eroding in storage, space filling with idle waste, knowledge locked in individuals, and <strong>no structured process to plan, track, and report what leaves the building</strong>. Keeper has run three pilots that prove what becomes possible when that changes. We're ready to build that with Six Senses — starting with Uluwatu once the inventory is finalised and ownership is aligned.</p>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-num">6,174</div>
+        <div class="stat-label">Items Diverted Across 3 Pilots</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">13.4t</div>
+        <div class="stat-label">CO₂e Avoided</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">1,000+</div>
+        <div class="stat-label">Vulnerable People Supported</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">IDR 104M+</div>
+        <div class="stat-label">Total Value Generated</div>
+      </div>
+    </div>
+    <p class="stats-footnote">Across 3 mid-cycle pilots · real data from a separate hotel group, anonymised · DEFRA 2023 · WRAP CarbonWARM2 · Scope 3 Cat. 2, 5 &amp; 12</p>
+  </div>
+
+  <!-- 02 WHAT THE PILOTS TOLD US -->
+  <div class="section">
+    <div class="eyebrow">02 — What the Pilots Told Us</div>
+    <h2 class="sh">The model works. <em>What comes next requires a partner.</em></h2>
+    <div class="sh-rule"></div>
+
+    <div class="pilot-grid">
+      <div class="pilot-card">
+        <div class="pilot-num">01</div>
+        <div class="pilot-title">Two ways in. Zero barriers.</div>
+        <div class="pilot-body">
+          <div class="upload-option">
+            <div class="upload-option-label">Option 1 — The Tool</div>
+            Log assets as they become available. Quick, staff can see the impact of every item they redirect in real time — building the engagement Six Senses already knows is powerful.
+          </div>
+          <div class="upload-option">
+            <div class="upload-option-label">Option 2 — Upload What You Have</div>
+            Drop an existing inventory list straight into the platform. No new process required. Keeper takes it from there — matching, logistics, ESG data. <strong>Less work. More done.</strong>
+          </div>
+        </div>
+      </div>
+      <div class="pilot-card">
+        <div class="pilot-num">02</div>
+        <div class="pilot-title">The data gap is real — and now reportable</div>
+        <div class="pilot-body">In every pilot, <strong>no structured data existed</strong> for end-of-life asset events at property or group level. Keeper originated the first audit-ready sustainability records these properties had ever produced — covering diversion volumes, emissions avoided, financial value recovered, and social impact delivered. For Six Senses, where sustainability runs through every management contract, this is data that should exist — and currently doesn't.</div>
+      </div>
+      <div class="pilot-card">
+        <div class="pilot-num">03</div>
+        <div class="pilot-title">The best outcomes come from building with Six Senses — not for them.</div>
+        <div class="pilot-body">Six Senses has been leading sustainable hospitality since the mid-1990s. <strong>That institutional knowledge — what works operationally, what resonates with owners, what the group's reporting requires — is exactly what Keeper needs to build something that fits.</strong> The more Six Senses' insight shapes what we build, the stronger and more systemic the change across the portfolio.</div>
+      </div>
+    </div>
+
+    <div class="learned-grid">
+      <div class="learned-card">
+        <div class="learned-head">Circularity is already a Six Senses strength</div>
+        <div class="learned-body">Six Senses has been recognised for circular economy innovation — including circularity awards at the World Sustainable Travel &amp; Hospitality Awards. Keeper makes this measurable, auditable, and reportable at portfolio scale. The story already exists; Keeper makes it visible.</div>
+      </div>
+      <div class="learned-card">
+        <div class="learned-head">Group-level buy-in accelerates everything</div>
+        <div class="learned-body">Pilots with group sustainability backing moved faster, produced cleaner data, and created stronger internal case studies. A partnership with Six Senses group sustainability transforms individual property pilots into a portfolio-wide standard — and a model the industry doesn't yet have.</div>
+      </div>
+      <div class="learned-card">
+        <div class="learned-head">Southeast Asia, then global</div>
+        <div class="learned-body">Uluwatu is the right starting point — the renovation context is live and the opportunity is immediate. From there, Six Senses properties across Southeast Asia and beyond offer a growth path that builds both the data set and the partner network. Each market brings different community partners, resale channels, and asset profiles.</div>
+      </div>
+      <div class="learned-card">
+        <div class="learned-head">Staff engagement is a genuine multiplier</div>
+        <div class="learned-body">Six Senses teams are already sustainability-motivated — this is embedded in the brand. Keeper's model makes their contribution to circular asset management visible, measurable, and shareable. That's an HR, marketing, and culture asset as much as an operational one.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 THE OFFER -->
+  <div class="section">
+    <div class="eyebrow">03 — What Keeper Is Offering</div>
+    <h2 class="sh">A pilot at Uluwatu. <em>In exchange for building something bigger together.</em></h2>
+    <div class="sh-rule"></div>
+
+    <div class="offer-panel">
+      <p>Keeper will deliver the <strong>full circular asset management programme across two pilots — Six Senses Uluwatu and one further Six Senses property in Southeast Asia</strong> — covering asset evaluation, redirection matching across resale and donation pathways, logistics coordination, staff engagement, per-property impact dashboards, and disclosure-grade ESG reporting. <strong>What we are asking in return:</strong> Six Senses' active involvement in shaping how Keeper develops at your scale — the operational realities, the reporting requirements, and the outcomes that matter most to the group. These two pilots are the proof point. The portfolio is the opportunity.</p>
+    </div>
+
+    <div class="context-panel">
+      <p>This is not a vendor relationship. <strong>Six Senses has sustainability commitments, owner relationships, and a global brand position that Keeper can serve — but only if we build with your insight, not around it.</strong> We want to understand where the value sits most clearly at hotel level and group level, what the right price point is to make this an easy internal decision, and what the Six Senses portfolio needs this to become.</p>
+    </div>
+  </div>
+
+  <!-- 04 WHAT WE NEED -->
+  <div class="section">
+    <div class="eyebrow">04 — What We Need Six Senses' Input To Build</div>
+    <h2 class="sh">Four things that only <em>Six Senses can unlock.</em></h2>
+    <div class="sh-rule"></div>
+
+    <div class="needs-grid">
+      <div class="need-card">
+        <div class="need-title">Owner &amp; Asset Decision Alignment</div>
+        <div class="need-body">At Six Senses, asset disposal decisions sit with property owners — not solely the operations or sustainability team. <strong>Keeper needs to understand how owner conversations work, what makes the financial and brand case compelling to ownership, and how to structure the programme so that value recovery for owners is visible from the outset.</strong> Armand's insight into how this works at Uluwatu and across the group is essential.</div>
+        <div class="need-tag">Critical unlock</div>
+      </div>
+      <div class="need-card">
+        <div class="need-title">Group Reporting Integration</div>
+        <div class="need-body">Six Senses reports environmental and social impact across all 27 properties, contributing to GSTC certification, IHG group CSRD exposure, and GRI-aligned disclosure. <strong>Keeper's data needs to flow into these existing frameworks without creating additional reporting burden.</strong> Help us map the exact fields, formats, and cadences required — so the data Keeper generates becomes an immediate asset for the group's sustainability team.</div>
+        <div class="need-tag">Co-development priority</div>
+      </div>
+      <div class="need-card">
+        <div class="need-title">Community &amp; Resale Partner Network</div>
+        <div class="need-body">The social impact and financial recovery value of Keeper depends on the quality of the downstream partner network — NGOs, social enterprises, resellers, and certified recyclers. <strong>Six Senses already works with local community and environmental organisations at each property.</strong> A shared approach to network-building that honours and includes those existing relationships creates stronger outcomes and deeper community alignment across the portfolio.</div>
+        <div class="need-tag">Partnership &amp; networks</div>
+      </div>
+      <div class="need-card">
+        <div class="need-title">Value &amp; Pricing Validation</div>
+        <div class="need-body">Keeper is developing its pricing model — at property level and group level — and genuinely needs Six Senses' perspective to get it right. <strong>Where does the value land most strongly? At the hotel operations budget, the sustainability team, the owner relationship, or the group reporting level?</strong> What price point makes this an easy internal decision rather than a barrier? Your honest input here shapes what Keeper offers across the portfolio.</div>
+        <div class="need-tag">Strategic input</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 THE EXCHANGE -->
+  <div class="section">
+    <div class="eyebrow">05 — The Exchange</div>
+    <h2 class="sh">What each party <em>brings to the table</em></h2>
+    <div class="sh-rule"></div>
+
+    <div class="exchange-grid">
+      <div class="ex-col keeper">
+        <div class="ex-header">
+          <span>Keeper Delivers</span>
+          Full programme delivery from day one
+        </div>
+        <div class="ex-items">
+          <div class="ex-item">
+            <span class="ex-arrow">›</span>
+            <span><strong>Full hotel onboarding</strong> — asset upload tool, inventory evaluation, redirection proposals, reseller and NGO matching, and logistics planning at Uluwatu.</span>
+          </div>
+          <div class="ex-item">
+            <span class="ex-arrow">›</span>
+            <span><strong>Resale and donation pipeline</strong> — growing network of vetted resellers to maximise financial return for owners, and donation pathways to keep assets moving and communities supported.</span>
+          </div>
+          <div class="ex-item">
+            <span class="ex-arrow">›</span>
+            <span><strong>Audit-grade ESG data</strong> — Scope 3 Cat. 2, 5 &amp; 12 methodology, GSTC and GRI-aligned, CSRD-relevant — disclosure-ready, not estimated.</span>
+          </div>
+          <div class="ex-item">
+            <span class="ex-arrow">›</span>
+            <span><strong>Per-property impact dashboard</strong> — live, growing view of items diverted, CO₂e avoided, value recovered, and communities supported.</span>
+          </div>
+          <div class="ex-item">
+            <span class="ex-arrow">›</span>
+            <span><strong>Social impact stories</strong> — ready-to-use content for Instagram, LinkedIn, and internal channels — the narrative Six Senses properties can own.</span>
+          </div>
+          <div class="ex-item">
+            <span class="ex-arrow">›</span>
+            <span><strong>Group-level portfolio dashboard</strong> — consolidated impact across all participating Six Senses properties, priced by hotel keys included.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ex-col partner">
+        <div class="ex-header">
+          <span>Six Senses Contributes</span>
+          Insight, access, and commitment to build
+        </div>
+        <div class="ex-items">
+          <div class="ex-item">
+            <span class="ex-arrow">›</span>
+            <span><strong>Uluwatu access and inventory</strong> — confirmed asset inventory once finalised, and access to the renovation programme to run the first live pilot.</span>
+          </div>
+          <div class="ex-item">
+            <span class="ex-arrow">›</span>
+            <span><strong>Owner relationship context</strong> — insight into how asset decisions are made, what the ownership case requires, and how to structure value recovery conversations internally.</span>
+          </div>
+          <div class="ex-item">
+            <span class="ex-arrow">›</span>
+            <span><strong>Sustainability team involvement</strong> — working input to shape reporting alignment, KPIs, and what success looks like at property and group level.</span>
+          </div>
+          <div class="ex-item">
+            <span class="ex-arrow">›</span>
+            <span><strong>Community and supplier introductions</strong> — connections to NGO and social enterprise partners within Six Senses' existing Bali networks, strengthening impact pathways and community alignment.</span>
+          </div>
+          <div class="ex-item">
+            <span class="ex-arrow">›</span>
+            <span><strong>Growth pathway commitment</strong> — a clear signal that if Uluwatu delivers, Six Senses will support a conversation about rolling this across other Southeast Asia properties and beyond.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 SUCCESS METRICS -->
+  <div class="section">
+    <div class="eyebrow">06 — What Success Looks Like</div>
+    <h2 class="sh">Outcomes that matter <em>at both levels</em></h2>
+    <div class="sh-rule"></div>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-label">Asset Diversion Rate</div>
+        <div class="metric-body">Total assets diverted from disposal as a % of eligible items — documented per property and in aggregate across the Six Senses portfolio.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">CO₂e Avoided</div>
+        <div class="metric-body">Scope 3 avoided emissions across Cat. 2, 5 &amp; 12 — calculated to DEFRA / WRAP CarbonWARM2 methodology, audit-ready and GSTC/GRI-aligned.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Financial Value Recovered</div>
+        <div class="metric-body">Revenue and in-kind donation value documented per asset category — building the owner ROI case for ongoing operations investment and HMA retention.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Social Impact Verified</div>
+        <div class="metric-body">Downstream beneficiaries, organisations, and communities supported — documented with verified partner data and first-person testimony, not estimates.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Staff Engagement</div>
+        <div class="metric-body">Measurable staff participation in the asset redirection process — a visible contribution to Six Senses' sustainability culture and an HR and marketing asset at property level.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Group-Level Disclosure Output</div>
+        <div class="metric-body">All metrics consolidated into a single portfolio view — aligned to Six Senses' GSTC reporting, IHG group CSRD exposure, and GRI 306 waste disclosure.</div>
+      </div>
+    </div>
+
+    <div class="italic-closer">
+      For Six Senses, this programme represents <strong>the first time end-of-life asset management is measured, reported, and community-connected at both property and group level</strong> — turning a current gap in circular asset reporting into a leadership position consistent with how Six Senses has approached sustainability since its founding.
+    </div>
+
+    <div class="intelligence-panel">
+      <div class="intelligence-body">
+        <div class="intelligence-title">Beyond diversion and donation</div>
+        Keeper creates a new layer of operational intelligence — helping Six Senses understand asset lifecycles, recovery potential, waste patterns, and circular value opportunities across the portfolio. Circular asset management in hotels is an unsolved problem globally. This is the opportunity to build the standard.
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 TIMELINE -->
+  <div class="section">
+    <div class="eyebrow">07 — Proposed Path</div>
+    <h2 class="sh">From Uluwatu <em>to the global portfolio</em></h2>
+    <div class="sh-rule"></div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-phase">Now — Alignment</div>
+        <div class="tl-title">Call &amp; Scoping</div>
+        <div class="tl-body">A call to align on the Uluwatu opportunity, identify a second Six Senses property in Southeast Asia, understand the owner and internal decision process, and agree what we need from each other to make the pilots a success. Keeper brings the methodology; Six Senses brings the operational and ownership context.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-phase">Once Inventory Finalised</div>
+        <div class="tl-title">Pilot 1 — Six Senses Uluwatu</div>
+        <div class="tl-body">Keeper onboards Uluwatu, evaluates assets, matches to resale and donation pathways, coordinates logistics, and produces a full impact report and dashboard. Data captured, communities supported, owner value demonstrated, ESG data disclosure-ready.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-phase">In Parallel — Southeast Asia</div>
+        <div class="tl-title">Pilot 2 — Second Six Senses Property, SEA</div>
+        <div class="tl-body">A second property in Southeast Asia — selected with Six Senses group sustainability — running concurrently or sequentially with Uluwatu. Different asset profile, different market, different community context. Together the two pilots build a multi-property data set that makes the group-level case compelling.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-phase">Post-Pilot</div>
+        <div class="tl-title">Review, Case Study &amp; Group Conversation</div>
+        <div class="tl-body">Full impact review across both pilots with the Six Senses sustainability team. The combined data becomes the case study that opens the group-level portfolio conversation — owner ROI, ESG narrative, and circular asset standard in hand.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-phase">Scale</div>
+        <div class="tl-title">Six Senses SEA &amp; Global Portfolio Rollout</div>
+        <div class="tl-body">A programme across Six Senses properties in Southeast Asia and beyond — built on a methodology co-developed with the group, reporting aligned to Six Senses' existing sustainability frameworks, and a partner network anchored in the communities where Six Senses operates globally.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 08 COMMERCIAL FRAMEWORK -->
+  <div class="section">
+    <div class="eyebrow">08 — Indicative Commercial Framework</div>
+    <h2 class="sh">A two-tier model — <em>designed around where Six Senses' value sits</em></h2>
+    <div class="sh-rule"></div>
+
+    <div class="tiers-grid">
+      <div class="tier-card t1">
+        <div class="tier-header">
+          <div class="tier-tag">Tier 1 — Property Level</div>
+          <div class="tier-title">Hotel Operations / Owner Relations / Marketing Budget</div>
+          <div class="tier-budget">The operational and owner value case</div>
+        </div>
+        <div class="tier-body">
+          Each property accesses the Keeper platform — asset upload, redirection matching, approval workflows, local partner network, staff engagement tools, and hotel impact dashboard. The cost replaces existing waste disposal fees and staff time on ad-hoc logistics, while generating financial return for owners and auditable ESG data as a byproduct of normal operations.
+          <div class="tier-price">Indicative: IDR 2–3 million / hotel / month (USD ~150–200)</div>
+          <div class="tier-covers">Covers: asset upload tool · resale &amp; donation matching · owner value reporting · staff engagement · hotel impact dashboard · social impact stories</div>
+        </div>
+      </div>
+
+      <div class="tier-card t2">
+        <div class="tier-header">
+          <div class="tier-tag">Tier 2 — Group Level</div>
+          <div class="tier-title">Group Sustainability / Finance Budget</div>
+          <div class="tier-budget">The portfolio reporting and intelligence value case</div>
+        </div>
+        <div class="tier-body">
+          The group accesses consolidated, disclosure-ready data across all participating Six Senses properties — CO₂e avoided, weight diverted, social impact, asset intelligence — aligned to GSTC, GRI 306, and IHG CSRD exposure. This data does not currently exist in Six Senses' portfolio reporting. Keeper originates it.
+          <div class="tier-price">Pricing scaled to portfolio size — to be shaped with Six Senses input</div>
+          <div class="tier-covers">Covers: consolidated portfolio dashboard · group impact reports · GSTC/GRI audit pack · CSRD-aligned data · procurement intelligence · owner relations reporting</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="wrap">
+  <div class="close-panel">
+    <div class="eyebrow gold">09 — The Ask</div>
+    <h3>Six Senses' involvement shapes what this becomes.</h3>
+    <p>Keeper has proven the model works. What we're asking now is for Six Senses to help us build the version that works for you — your owners, your reporting requirements, your communities, your scale. <strong>Uluwatu is where we start. The global portfolio is where this goes.</strong> Circular asset management in hotels is an unsolved problem. We'd love to solve it with you.</p>
+  </div>
+</div>
+
+<div class="doc-footer">
+  <svg height="22" viewBox="0 0 60 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <polyline points="6,3 16,11 6,19" stroke="#4A9E78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <polyline points="14,3 24,11 14,19" stroke="rgba(246,243,237,0.55)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </svg>
+  <span>keeper.green &nbsp;·&nbsp; hello@keeper.green</span>
+  <span>© 2026 Keeper · Prepared for Six Senses Hotels Resorts Spas</span>
+</div>
+
+</body>
+</html>
